@@ -2,6 +2,19 @@ import XCTest
 @testable import TicTacToe
 
 class TicTacToeTests: XCTestCase {
+    private func cellsAsStringToCells(_ stringCells: [String]) -> [GameBoard.Cell] {
+        stringCells.map { stringCell in
+            switch stringCell {
+            case "X":
+                return .cross
+            case "O":
+                return .nought
+            default:
+                return .empty
+            }
+        }
+    }
+    
     func test_exampleTest() {
         print("Hello, Tests!")
         XCTAssert(true)
@@ -26,20 +39,11 @@ class TicTacToeTests: XCTestCase {
     
     func test_playerX_won_withVerticalLine() {
         let gameBoard = GameBoard()
-        gameBoard.cells = [
+        gameBoard.cells = cellsAsStringToCells([
             "X"," "," ",
             "X","O"," ",
             "X"," ","O"
-        ].map { stringCell in
-            switch stringCell {
-            case "X":
-                return .cross
-            case "O":
-                return .nought
-            default:
-                return .empty
-            }
-        }
+        ])
         
         gameBoard.determineState()
         
