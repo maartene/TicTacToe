@@ -11,3 +11,10 @@ RED
 
 ## Pom 1:
 ### Requirement 2 – Player X won with a vertical line continued
+RED/GREEN/REFACTOR
+* The output is now based on the game state
+* Gamestate can change based on whether player X won
+* Converted the player definition as a string to a domain specific representation
+
+### Requirement 3 – Player O won with a horizontal line
+
