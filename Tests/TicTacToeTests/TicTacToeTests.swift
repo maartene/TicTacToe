@@ -30,7 +30,16 @@ class TicTacToeTests: XCTestCase {
             "X"," "," ",
             "X","O"," ",
             "X"," ","O"
-        ]
+        ].map { stringCell in
+            switch stringCell {
+            case "X":
+                return .cross
+            case "O":
+                return .nought
+            default:
+                return .empty
+            }
+        }
         
         gameBoard.determineState()
         
