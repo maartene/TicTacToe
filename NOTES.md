@@ -1,4 +1,6 @@
 # NOTES.md
+* Started at around 12:45
+* Poms take 25 minutes with 5 minute pause
 
 ## Pom 0:
 ### Requirement 1 - Game Board Creation phase 
@@ -51,3 +53,6 @@ RED/GREEN/REFACTOR
 * currentplayer is set from the main.swift app. This violates encapsulation (this should be the bots job). 
 * This is difficult to fix without side effects. 
 * But, there is still some time, to improve this.
+
+## Pom 4:
+* This is out of time, but I just couldn't bare having not finishing the last refactor activity.
