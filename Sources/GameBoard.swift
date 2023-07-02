@@ -163,10 +163,14 @@ final class GameBoard {
         return result
     }
     
-    func placeRandom(_ player: Cell) {
+    func placeRandom() {
         if let randomElement = availableMoves.randomElement() {
-            cells[randomElement] = player
+            cells[randomElement] = currentPlayer
         }
+        
+        determineState()
+        print(outputString)
+        currentPlayer = nextPlayer
     }
     
     var nextPlayer: Cell {

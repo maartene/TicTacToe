@@ -49,3 +49,5 @@ RED/GREEN/REFACTOR
 ### Create an app
 * main.swift contains a very simple implementation.
 * currentplayer is set from the main.swift app. This violates encapsulation (this should be the bots job). 
+* This is difficult to fix without side effects. 
+* But, there is still some time, to improve this.
