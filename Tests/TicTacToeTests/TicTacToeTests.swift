@@ -8,6 +8,8 @@ class TicTacToeTests: XCTestCase {
     }
     
     func test_gameBoard_creation() {
+        let gameBoard = GameBoard()
+        
         let comparisonString = """
         Game Board Creation...
          | |
@@ -20,5 +22,12 @@ class TicTacToeTests: XCTestCase {
         The game will start with player X
         """
         XCTAssertEqual(gameBoard.outputString, comparisonString)
+    }
+}
+
+final class GameBoard {
+    var outputString: String {
+        """
+        """
     }
 }
