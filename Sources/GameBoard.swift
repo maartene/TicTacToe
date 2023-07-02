@@ -8,6 +8,8 @@
 import Foundation
 
 final class GameBoard {
+    var cells = Array(repeating: "-", count: 9)
+    
     var outputString: String {
         """
         Game Board Creation...
