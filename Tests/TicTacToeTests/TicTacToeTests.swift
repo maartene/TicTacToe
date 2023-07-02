@@ -32,16 +32,18 @@ class TicTacToeTests: XCTestCase {
             "X"," ","O"
         ]
         
-        let comparisonString = """
-        Player X:
-        X| |
-        -+-+-
-        X|O|
-        -+-+-
-        X| |O
+        gameBoard.determineState()
         
-        PLAYER X WON!
-        """
+        let comparisonString =
+        "Player X:\n" +
+        "X| | \n" +
+        "-+-+-\n" +
+        "X|O| \n" +
+        "-+-+-\n" +
+        "X| |O\n" +
+        "\n" +
+        "PLAYER X WON!\n"
+        
         
         XCTAssertEqual(gameBoard.outputString, comparisonString)
     }
