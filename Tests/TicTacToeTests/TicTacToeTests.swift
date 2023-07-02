@@ -129,6 +129,28 @@ class TicTacToeTests: XCTestCase {
         "\n" +
         "PLAYER O WON!\n"
         
+        XCTAssertEqual(gameBoard.outputString, comparisonString)
+    }
+    
+    func test_draw_whenNoMoreLegalMovesAreAvailable() {
+        let gameBoard = GameBoard()
+        gameBoard.cells = cellsAsStringToCells([
+            "X","O","X",
+            "O","O","X",
+            "X","X","O"
+        ])
+        
+        gameBoard.determineState()
+        
+        let comparisonString =
+        "Player X:\n" +
+        "X|O|X\n" +
+        "-+-+-\n" +
+        "O|O|X\n" +
+        "-+-+-\n" +
+        "X|X|O\n" +
+        "\n" +
+        "THE GAME ENDS WITH A DRAW!\n"
         
         XCTAssertEqual(gameBoard.outputString, comparisonString)
     }

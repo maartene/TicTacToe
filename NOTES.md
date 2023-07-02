@@ -22,4 +22,17 @@ RED
 * Started implementing code to check for a win for player O and for horizontal wins.
 
 ## Pom 2:
-### Requirement 2 – Player X won with a vertical line continued
+### Requirement 3 – Player O won with a horizontal line
+RED/GREEN/REFACTOR
+* Test passes
+* Refactored local variables to use domain specific naming (rows, columns)
+
+### Requirement 4 - Player X won with a diagonal line
+RED/GREEN/REFACTOR
+* Test passes for player X with diagonal starting at cell 0
+* Added test for Player O with diagnoal starting at cell 2 (opposite direction) - test passes
+* Didn't refactor any code here
+
+### Requirement 5 – The game ends with a draw
+RED
+
