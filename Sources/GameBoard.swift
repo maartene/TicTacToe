@@ -29,6 +29,7 @@ final class GameBoard {
         case started
         case playerXWon
         case playerOWon
+        case draw
         
         var headerString: String {
             switch self {
@@ -38,6 +39,8 @@ final class GameBoard {
                 return "Player X:\n"
             case .playerOWon:
                 return "Player O:\n"
+            case .draw:
+                return "Player X:\n"
             }
         }
         
@@ -51,6 +54,8 @@ final class GameBoard {
             return "PLAYER X WON!\n"
             case .playerOWon:
             return "PLAYER O WON!\n"
+            case .draw:
+            return "THE GAME ENDS WITH A DRAW!\n"
             }
         }
     }
@@ -68,12 +73,18 @@ final class GameBoard {
     }
     
     func determineState() {
+        if movesAvailable == false {
+            state = .draw
+        }
+        
         if checkForWin(for: .cross) {
             state = .playerXWon
         }
         if checkForWin(for: .nought) {
             state = .playerOWon
         }
+        
+        
     }
     
     private func checkForWin(for player: Cell) -> Bool {
@@ -88,7 +99,7 @@ final class GameBoard {
         if checkForDiagonalWin(for: player) {
             return true
         }
-        
+            
         return false
     }
     
@@ -121,6 +132,12 @@ final class GameBoard {
         boardStateString +
         "\n" +
         state.endString
+    }
+    
+    var movesAvailable: Bool {
+        cells.filter { cell in
+            cell == .empty
+        }.count > 0
     }
 }
 

@@ -35,4 +35,4 @@ RED/GREEN/REFACTOR
 
 ### Requirement 5 – The game ends with a draw
 RED
-
+* To determine if we have a draw, we need to check if there are any legal moves available == cells that are empty.
