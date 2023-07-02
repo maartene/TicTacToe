@@ -6,4 +6,19 @@ class TicTacToeTests: XCTestCase {
         print("Hello, Tests!")
         XCTAssert(true)
     }
+    
+    func test_gameBoard_creation() {
+        let comparisonString = """
+        Game Board Creation...
+         | |
+        -+-+-
+         | |
+        -+-+-
+         | |
+        
+        Board Created.
+        The game will start with player X
+        """
+        XCTAssertEqual(gameBoard.outputString, comparisonString)
+    }
 }
