@@ -112,7 +112,8 @@ final class GameBoard {
     }
     
     private func checkForDiagonalWin(for player: Cell) -> Bool {
-        cells[0] == player && cells[4] == player && cells[8] == player
+        (cells[0] == player && cells[4] == player && cells[8] == player) ||
+        (cells[2] == player && cells[4] == player && cells[6] == player)
     }
     
     var outputString: String {

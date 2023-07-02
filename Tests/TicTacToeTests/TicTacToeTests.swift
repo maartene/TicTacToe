@@ -120,7 +120,7 @@ class TicTacToeTests: XCTestCase {
         gameBoard.determineState()
         
         let comparisonString =
-        "Player X:\n" +
+        "Player O:\n" +
         "X| |O\n" +
         "-+-+-\n" +
         "X|O| \n" +
