@@ -168,5 +168,9 @@ final class GameBoard {
             cells[randomElement] = player
         }
     }
+    
+    var nextPlayer: Cell {
+        return .empty
+    }
 }
 
