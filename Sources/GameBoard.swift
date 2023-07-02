@@ -152,5 +152,21 @@ final class GameBoard {
             cell == .empty
         }.count > 0
     }
+    
+    var availableMoves: [Int] {
+        var result = [Int]()
+        for i in 0 ..< cells.count {
+            if cells[i] == .empty {
+                result.append(i)
+            }
+        }
+        return result
+    }
+    
+    func placeRandom(_ player: Cell) {
+        if let randomElement = availableMoves.randomElement() {
+            cells[randomElement] = player
+        }
+    }
 }
 
