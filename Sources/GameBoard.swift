@@ -85,6 +85,10 @@ final class GameBoard {
             return true
         }
         
+        if checkForDiagonalWin(for: player) {
+            return true
+        }
+        
         return false
     }
     
@@ -105,6 +109,10 @@ final class GameBoard {
             }
         }
         return false
+    }
+    
+    private func checkForDiagonalWin(for player: Cell) -> Bool {
+        cells[0] == player && cells[4] == player && cells[8] == player
     }
     
     var outputString: String {
