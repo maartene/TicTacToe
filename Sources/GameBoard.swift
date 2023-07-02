@@ -89,8 +89,8 @@ final class GameBoard {
     }
     
     private func checkForVerticalWin(for player: Cell) -> Bool {
-        for i in 0 ..< 3 {
-            if cells[i] == player && cells[i + 3] == player && cells[i + 6] == player {
+        for column in 0 ..< 3 {
+            if cells[column] == player && cells[column + 3] == player && cells[column + 6] == player {
                 return true
             }
         }
@@ -98,8 +98,8 @@ final class GameBoard {
     }
     
     private func checkForHorizontalWin(for player: Cell) -> Bool {
-        for i in 0 ..< 3 {
-            let rowIndex = i * 3
+        for row in 0 ..< 3 {
+            let rowIndex = row * 3
             if cells[rowIndex] == player && cells[rowIndex + 1] == player && cells[rowIndex + 2] == player {
                 return true
             }
