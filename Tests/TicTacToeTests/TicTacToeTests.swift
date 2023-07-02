@@ -179,4 +179,10 @@ class TicTacToeTests: XCTestCase {
         
         XCTAssertEqual(gameBoard.availableMoves.count, gameBoard.cells.count - 1)
     }
+    
+    func test_gameBoard_nextPlayer_isOIfCurrentlyPlayerX() {
+        let gameBoard = GameBoard()
+        gameBoard.currentPlayer = .cross
+        XCTAssertEqual(gameBoard.nextPlayer, .nought)
+    }
 }
