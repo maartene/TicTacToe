@@ -169,4 +169,14 @@ class TicTacToeTests: XCTestCase {
         
         XCTAssertEqual(gameBoard.cells.filter({$0 == .cross}).count, 1)
     }
+    
+    func test_gameBoard_botOTakesTurn_removesAvailableMove() {
+        let gameBoard = GameBoard()
+        
+        XCTAssertEqual(gameBoard.availableMoves.count, gameBoard.cells.count)
+        
+        gameBoard.placeRandom(.nought)
+        
+        XCTAssertEqual(gameBoard.availableMoves.count, gameBoard.cells.count - 1)
+    }
 }
