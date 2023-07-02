@@ -34,5 +34,13 @@ RED/GREEN/REFACTOR
 * Didn't refactor any code here
 
 ### Requirement 5 – The game ends with a draw
-RED
+RED/GREEN
 * To determine if we have a draw, we need to check if there are any legal moves available == cells that are empty.
+* Started to refactor code so we can keep track of which player is the current player. This fails many tests, because currentplayer is not set.
+
+## Pom 3:
+### Requirement 5 – The game ends with a draw
+RED/GREEN/REFACTOR
+* Keep track of current player.
+
+### Create a bot

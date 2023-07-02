@@ -44,6 +44,7 @@ class TicTacToeTests: XCTestCase {
             "X","O"," ",
             "X"," ","O"
         ])
+        gameBoard.currentPlayer = .cross
         
         gameBoard.determineState()
         
@@ -69,6 +70,7 @@ class TicTacToeTests: XCTestCase {
             "X"," "," "
         ])
         
+        gameBoard.currentPlayer = .nought
         gameBoard.determineState()
         
         let comparisonString =
@@ -93,6 +95,7 @@ class TicTacToeTests: XCTestCase {
             "O"," ","X"
         ])
         
+        gameBoard.currentPlayer = .cross
         gameBoard.determineState()
         
         let comparisonString =
@@ -117,6 +120,7 @@ class TicTacToeTests: XCTestCase {
             "O"," "," "
         ])
         
+        gameBoard.currentPlayer = .nought
         gameBoard.determineState()
         
         let comparisonString =
@@ -140,6 +144,7 @@ class TicTacToeTests: XCTestCase {
             "X","X","O"
         ])
         
+        gameBoard.currentPlayer = .cross
         gameBoard.determineState()
         
         let comparisonString =
@@ -153,5 +158,15 @@ class TicTacToeTests: XCTestCase {
         "THE GAME ENDS WITH A DRAW!\n"
         
         XCTAssertEqual(gameBoard.outputString, comparisonString)
+    }
+    
+    func test_gameBoard_botXTakesTurn_addsXToBoard() {
+        let gameBoard = GameBoard()
+        
+        XCTAssertEqual(gameBoard.cells.filter({$0 == .cross}).count, 0)
+        
+        gameBoard.placeRandom(.cross)
+        
+        XCTAssertEqual(gameBoard.cells.filter({$0 == .cross}).count, 1)
     }
 }

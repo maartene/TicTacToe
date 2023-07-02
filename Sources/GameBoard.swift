@@ -26,30 +26,28 @@ final class GameBoard {
     }
     
     enum GameState {
-        case started
         case playerXWon
         case playerOWon
         case draw
+        case inProgress
         
-        var headerString: String {
-            switch self {
-            case .started:
-                return "Game Board Creation...\n"
-            case .playerXWon:
-                return "Player X:\n"
-            case .playerOWon:
-                return "Player O:\n"
-            case .draw:
-                return "Player X:\n"
-            }
-        }
+//        var headerString: String {
+//            switch self {
+//            case .inProgress:
+//                return "Player "
+//            case .playerXWon:
+//                return "Player X:\n"
+//            case .playerOWon:
+//                return "Player O:\n"
+//            case .draw:
+//                return "Player X:\n"
+//            }
+//        }
         
         var endString: String {
             switch self {
-            case .started:
-            return
-                "Board Created.\n" +
-                "The game will start with player X\n"
+            case .inProgress:
+            return ""
             case .playerXWon:
             return "PLAYER X WON!\n"
             case .playerOWon:
@@ -60,7 +58,7 @@ final class GameBoard {
         }
     }
     
-    var state = GameState.started
+    var state = GameState.inProgress
     
     var cells = Array(repeating: Cell.empty, count: 9)
     
@@ -71,6 +69,8 @@ final class GameBoard {
         "-+-+-\n" +
         "\(cells[6])|\(cells[7])|\(cells[8])\n"
     }
+    
+    var currentPlayer: Cell = .empty
     
     func determineState() {
         if movesAvailable == false {
@@ -127,11 +127,24 @@ final class GameBoard {
         (cells[2] == player && cells[4] == player && cells[6] == player)
     }
     
+    var headerString: String {
+        switch currentPlayer {
+        case .empty:
+            return "Game Board Creation...\n"
+        default:
+            return "Player \(currentPlayer):\n"
+        }
+    }
+    
+    var endString: String {
+        currentPlayer == .empty ? "Board Created.\nThe game will start with player X\n" : state.endString
+    }
+    
     var outputString: String {
-        state.headerString +
+        headerString +
         boardStateString +
         "\n" +
-        state.endString
+        endString
     }
     
     var movesAvailable: Bool {
