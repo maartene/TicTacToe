@@ -17,4 +17,9 @@ RED/GREEN/REFACTOR
 * Converted the player definition as a string to a domain specific representation
 
 ### Requirement 3 – Player O won with a horizontal line
+RED
+* Added failing test.
+* Started implementing code to check for a win for player O and for horizontal wins.
 
+## Pom 2:
+### Requirement 2 – Player X won with a vertical line continued

@@ -28,6 +28,7 @@ final class GameBoard {
     enum GameState {
         case started
         case playerXWon
+        case playerOWon
         
         var headerString: String {
             switch self {
@@ -35,6 +36,8 @@ final class GameBoard {
                 return "Game Board Creation...\n"
             case .playerXWon:
                 return "Player X:\n"
+            case .playerOWon:
+                return "Player O:\n"
             }
         }
         
@@ -46,6 +49,8 @@ final class GameBoard {
                 "The game will start with player X\n"
             case .playerXWon:
             return "PLAYER X WON!\n"
+            case .playerOWon:
+            return "PLAYER O WON!\n"
             }
         }
     }
@@ -66,10 +71,17 @@ final class GameBoard {
         if checkForWin(for: .cross) {
             state = .playerXWon
         }
+        if checkForWin(for: .nought) {
+            state = .playerOWon
+        }
     }
     
     private func checkForWin(for player: Cell) -> Bool {
         if checkForVerticalWin(for: player) {
+            return true
+        }
+        
+        if checkForHorizontalWin(for: player) {
             return true
         }
         
@@ -79,6 +91,16 @@ final class GameBoard {
     private func checkForVerticalWin(for player: Cell) -> Bool {
         for i in 0 ..< 3 {
             if cells[i] == player && cells[i + 3] == player && cells[i + 6] == player {
+                return true
+            }
+        }
+        return false
+    }
+    
+    private func checkForHorizontalWin(for player: Cell) -> Bool {
+        for i in 0 ..< 3 {
+            let rowIndex = i * 3
+            if cells[rowIndex] == player && cells[rowIndex + 1] == player && cells[rowIndex + 2] == player {
                 return true
             }
         }
