@@ -23,4 +23,27 @@ class TicTacToeTests: XCTestCase {
         """
         XCTAssertEqual(gameBoard.outputString, comparisonString)
     }
+    
+    func test_playerX_won_withVerticalLine() {
+        let gameBoard = GameBoard()
+        gameBoard.cells = [
+            "X","-","-",
+            "X","O","-",
+            "X","-","O"
+        ]
+        
+        
+        let comparisonString = """
+        Player X:
+        X| |
+        -+-+-
+        X|O|
+        -+-+-
+        X| |O
+        
+        PLAYER X WON!
+        """
+        
+        XCTAssertEqual(gameBoard.outputString, comparisonString)
+    }
 }
