@@ -24,19 +24,3 @@ class TicTacToeTests: XCTestCase {
         XCTAssertEqual(gameBoard.outputString, comparisonString)
     }
 }
-
-final class GameBoard {
-    var outputString: String {
-        """
-        Game Board Creation...
-         | |
-        -+-+-
-         | |
-        -+-+-
-         | |
-        
-        Board Created.
-        The game will start with player X
-        """
-    }
-}
