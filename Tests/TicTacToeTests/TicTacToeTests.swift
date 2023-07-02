@@ -28,6 +28,15 @@ class TicTacToeTests: XCTestCase {
 final class GameBoard {
     var outputString: String {
         """
+        Game Board Creation...
+         | |
+        -+-+-
+         | |
+        -+-+-
+         | |
+        
+        Board Created.
+        The game will start with player X
         """
     }
 }
