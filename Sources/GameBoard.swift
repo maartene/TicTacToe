@@ -170,7 +170,12 @@ final class GameBoard {
     }
     
     var nextPlayer: Cell {
-        return .empty
+        switch currentPlayer {
+        case .cross:
+            return .nought
+        default:
+            return .cross
+        }
     }
 }
 

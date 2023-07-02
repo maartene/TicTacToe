@@ -9,5 +9,5 @@ while board.state == .inProgress {
     board.placeRandom(board.currentPlayer)
     board.determineState()
     print(board.outputString)
+    board.currentPlayer = board.nextPlayer
 }
-

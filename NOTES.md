@@ -44,3 +44,8 @@ RED/GREEN/REFACTOR
 * Keep track of current player.
 
 ### Create a bot
+* Bot selects a random cell from the available cells
+
+### Create an app
+* main.swift contains a very simple implementation.
+* currentplayer is set from the main.swift app. This violates encapsulation (this should be the bots job). 
